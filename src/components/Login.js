@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import microscope from '../img/microscope.svg';
 import SubmitButton from './SubmitButton';
 import { makeLogin } from '../store/actions/Login';
 
@@ -23,8 +22,7 @@ export class login extends Component {
     render() {
         return (
             <div className="flex-center-column">
-                <img className="micro" src={microscope} alt="" />
-                <h2>Welcome</h2>
+                <h2 className="pat-marg">Patient Login</h2>
                 <p className="sub-title">Empire City Laboratories</p>
 
                 <form className="signup-form" onSubmit={this.handleSubmit}>
