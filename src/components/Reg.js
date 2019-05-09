@@ -22,7 +22,7 @@ export class login extends Component {
     render() {
         return (
             <div className="flex-center-column">
-                <h2 className="pat-marg">Patient Login</h2>
+                <h2 className="pat-marg">Patient Registration</h2>
                 <p className="sub-title">Empire City Laboratories</p>
 
                 <form className="signup-form" onSubmit={this.handleSubmit}>
@@ -31,7 +31,7 @@ export class login extends Component {
                         ref={el => this.login = el}
                         className="input-login"
                         type="text"
-                        placeholder="Enter Your Login"
+                        placeholder="Enter Your Email"
                         required="required"
                         autoComplete="username" />
 
@@ -43,9 +43,18 @@ export class login extends Component {
                         required="required"
                         autoComplete="current-password" />
 
+                    <input
+                        ref={el => this.pass = el}
+                        className="input-login"
+                        type="password"
+                        placeholder="Confirm Password"
+                        required="required"
+                        autoComplete="current-password" />
+
                     <div className="main-btn-height">
-                        <SubmitButton status={this.props.status} text="Login"/>
+                        <SubmitButton status={this.props.status} text="Create Account" />
                     </div>
+
                     <p className="text-center">© 2008-2019 Empire City Laboratories, Inc. All Rights Reserved. ECL and Empire City Laboratories are registered trademarks of Empire City Laboratories®, Inc.</p>
                 </form>
             </div>

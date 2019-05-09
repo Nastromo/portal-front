@@ -8,7 +8,11 @@ import { makeLogin } from '../store/actions/Login';
 
 export class login extends Component {
     handleLogin = () => {
-        window.location = `/login`
+        this.props.history.push(`/login`);
+    }
+
+    handleCreate = () => {
+        this.props.history.push(`/registration`);
     }
 
     render() {

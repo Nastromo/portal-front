@@ -1570,3 +1570,9 @@ a.logo-text:hover {
 .pat-marg {
     margin: 60px 0 0 0;
 }
+
+.nav-te {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
