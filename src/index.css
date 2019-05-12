@@ -54,7 +54,7 @@ ul {
 textarea {
     resize: none;
     outline: none;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #dadada;
     border-radius: 4px;
     width: 100%;
     height: 100%;
@@ -647,7 +647,7 @@ a.logo-text:hover {
     color: #2b2c2d;
     height: 33px;
     width: 134px;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #dadada;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -731,7 +731,7 @@ a.logo-text:hover {
     width: 100%;
     height: 37px;
     border-radius: 4px;
-    border: 1px solid #ececec;
+    border: 1px solid #dadada;
     color: #333;
     font-size: 0.84rem;
     font-weight: 600;
@@ -755,7 +755,7 @@ a.logo-text:hover {
     width: 100%;
     height: 250px;
     border-radius: 4px;
-    border: 1px solid #ececec;
+    border: 1px solid #dadada;
     box-shadow: 0 2px 8px 0 #00000012;
     color: #333;
     font-size: 0.84rem;
@@ -785,7 +785,7 @@ a.logo-text:hover {
     display: flex;
     align-items: center;
     padding: 0 15px;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid #dadada;
 }
 
 .menu-item:hover {
@@ -827,7 +827,7 @@ a.logo-text:hover {
     height: 23px;
     width: 23px;
     border-radius: 4px;
-    border: 1px solid #ececec;
+    border: 1px solid #dadada;
     cursor: pointer;
     margin: 3px 11px 3px 0;
 }
@@ -850,7 +850,7 @@ a.logo-text:hover {
     height: 37px;
     width: 200px;
     border-radius: 4px;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #dadada;
     padding: 0 15px 0;
 }
 
@@ -872,7 +872,7 @@ a.logo-text:hover {
     padding: 9px 8px;
     margin: 0 0 0 8px;
     border-radius: 4px;
-    border: 1px solid #ececec;
+    border: 1px solid #dadada;
     cursor: pointer;
 }
 
@@ -1437,7 +1437,7 @@ a.logo-text:hover {
     height: 37px;
     width: 100%;
     border-radius: 4px;
-    border: 1px solid #e2e2e2;
+    border: 1px solid #dadada;
     padding: 0 15px 0;
     margin: 5px 0 0 0;
 }
@@ -1554,6 +1554,39 @@ a.logo-text:hover {
     color: #fff;
 }
 
+.flex-ce {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-pay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 10px #00000013;
+    margin: 100px 0 0 0;
+    width: 625px;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.prod-sele {
+    display: flex;
+    align-items: center;
+}
+
+.pay-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 .green-login {
     margin: 6px 0 0 0;
     width: 300px;
@@ -1575,4 +1608,19 @@ a.logo-text:hover {
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: 700;
+}
+
+.quantity {
+    width: 70px;
+    margin: 2px 25px 0 0;
+}
+
+.products-s {
+    width: 400px;
+    margin: 25px 15px 20px 0;
+}
+
+.qty {
+    font-weight: 700;
+    margin:  0 5px 0 0;
 }

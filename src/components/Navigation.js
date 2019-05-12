@@ -45,7 +45,6 @@ export class Navigation extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="white-back">
                 <div className="main-nav">
