@@ -1572,9 +1572,25 @@ a.logo-text:hover {
     width: 625px;
 }
 
+.full-w {
+    width: 100%;
+}
+
+.full-w p {
+    padding: 0 11px;
+    margin: 10px 0 10px 0;
+    font-weight: 700;
+}
+
 .price {
     font-size: 1.2rem;
     font-weight: 700;
+}
+
+.wi-card {
+    display: flex;
+    padding: 0 11px;
+    width: 100%;
 }
 
 .prod-sele {
@@ -1623,4 +1639,37 @@ a.logo-text:hover {
 .qty {
     font-weight: 700;
     margin:  0 5px 0 0;
+}
+
+.fir-pa {
+    width: 383px;
+}
+
+.street {
+    width: 100%;
+    padding: 20px 11px;
+}
+
+.summ-bot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-su {
+    font-weight: 700;
+}
+
+.summ-bot {
+    margin: 10px 0;
+}
+
+.pay-btn {
+    width: 100%;
+    height: 45px;
+    background: #3f70f8;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }

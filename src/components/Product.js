@@ -36,6 +36,48 @@ export class Product extends Component {
                             type="number" />
                         <p className="price">{`$${this.props.price}`}</p>
                     </div>
+                    <div className="full-w"><p>Pay with Credit Card</p></div>
+
+                    <div className="wi-card">
+                        <div>
+                            <p>Card number</p>
+                            <input className="simple-input quantity fir-pa" type="number" />
+                        </div>
+                        <div>
+                            <p>Exp. date</p>
+                            <input className="simple-input quantity" type="number" />
+                        </div>
+                        <div>
+                            <p>CVV</p>
+                            <input className="simple-input quantity" type="number" />
+                        </div>
+                    </div>
+                    <div className="street">
+                        <p>Address</p>
+                        <input className="simple-input quantity fir-pa" placeholder="street" type="text" />
+                    </div>
+                    <div className="wi-card">
+                        <div>
+                            <p>City</p>
+                            <input className="simple-input quantity fir-pa" placeholder="city" type="text" />
+                        </div>
+                        <div>
+                            <p>State</p>
+                            <input className="simple-input quantity" type="text" />
+                        </div>
+                        <div>
+                            <p>ZIP</p>
+                            <input className="simple-input quantity" type="number" />
+                        </div>
+                    </div>
+                    <div className="street">
+                        <p className="title-su">Plan Summary</p>
+                        <div className="summ-bot">
+                            <p>{this.props.productOption ? this.props.productOption : `Not chosen`}</p>
+                            <p>{`$${this.props.price}`}</p>
+                        </div>
+                    </div>
+                    <button className="pay-btn">PAY</button>
                 </div>
             </div>
         )
