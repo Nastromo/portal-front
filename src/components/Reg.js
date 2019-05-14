@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SubmitButton from './SubmitButton';
-import { makeLogin } from '../store/actions/Login';
+import { makeReg } from '../store/actions/Registration';
+import { showNotification } from '../store/actions/Notification';
 
 
 
 
 export class login extends Component {
 
-    handleSubmit = async (e) => {
+    handleRegistration = async (e) => {
         e.preventDefault();
-        if (this.login.value && this.pass.value) {
-            this.props.makeLogin(this.props.history, `/v1/login`, {
-                login: this.login.value,
-                pass: this.pass.value
-            });
+        if (this.pass.value === this.passConfirm.value) {
+            if (this.email.value && this.pass.value) {
+                this.props.makeReg(this.props.history, `/v1/registration`, {
+                    email: this.email.value,
+                    pass: this.pass.value
+                });
+            }
+        } else {
+            this.props.showNotification(`Password doesn't match`, `notification-show`);
         }
     }
 
@@ -25,10 +30,10 @@ export class login extends Component {
                 <h2 className="pat-marg">Patient Registration</h2>
                 <p className="sub-title">Empire City Laboratories</p>
 
-                <form className="signup-form" onSubmit={this.handleSubmit}>
+                <form className="signup-form" onSubmit={this.handleRegistration}>
 
                     <input
-                        ref={el => this.login = el}
+                        ref={el => this.email = el}
                         className="input-login"
                         type="text"
                         placeholder="Enter Your Email"
@@ -44,7 +49,7 @@ export class login extends Component {
                         autoComplete="current-password" />
 
                     <input
-                        ref={el => this.pass = el}
+                        ref={el => this.passConfirm = el}
                         className="input-login"
                         type="password"
                         placeholder="Confirm Password"
@@ -67,7 +72,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    makeLogin: (history, url, body) => dispatch(makeLogin(history, url, body)),
+    makeReg: (history, url, body) => dispatch(makeReg(history, url, body)),
+    showNotification: (text, clazz) => dispatch(showNotification(text, clazz))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(login)
