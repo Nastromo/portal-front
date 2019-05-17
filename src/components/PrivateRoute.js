@@ -5,6 +5,7 @@ import LineSpinner from './LineSpinner';
 import Main from './Main';
 import Navigation from './Navigation';
 import Product from './Product';
+import { StripeProvider } from 'react-stripe-elements';
 
 
 
@@ -16,23 +17,25 @@ export class PrivateRoute extends Component {
         if (this.props.isLoading) return <LineSpinner />
 
         return (
-            <div>
-                <Navigation />
-                <Switch>
-                    <Route exact path="/account/main" component={Main} />
-                    <Route exact path="/account/products" component={Product} />
-                </Switch>
-            </div>
+            <StripeProvider apiKey="pk_test_QOzx3Av0qTEjt0e31wPG3aff00KTbteZxN">
+                <div>
+                    <Navigation />
+                    <Switch>
+                        <Route exact path="/account/main" component={Main} />
+                        <Route exact path="/account/products" component={Product} />
+                    </Switch>
+                </div>
+            </StripeProvider>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    
+
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PrivateRoute))

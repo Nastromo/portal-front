@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DropDown from './DropDown';
 import { calculateTestQuantity } from '../store/actions/TestQuantity';
+import { Elements } from 'react-stripe-elements';
+import CheckoutForm from './CheckoutForm';
 
 
 
@@ -16,6 +18,18 @@ export class Product extends Component {
     }
 
     render() {
+        if (this.props.ok) {
+            return (
+                <div>OKOKOKOK</div>
+            )
+        }
+
+        if (this.props.error) {
+            return (
+                <div>ERROR</div>
+            )
+        }
+
         return (
             <div className="flex-ce">
                 <div className="form-pay">
@@ -38,20 +52,6 @@ export class Product extends Component {
                     </div>
                     <div className="full-w"><p>Pay with Credit Card</p></div>
 
-                    <div className="wi-card">
-                        <div>
-                            <p>Card number</p>
-                            <input className="simple-input quantity fir-pa" type="number" />
-                        </div>
-                        <div>
-                            <p>Exp. date</p>
-                            <input className="simple-input quantity" type="number" />
-                        </div>
-                        <div>
-                            <p>CVV</p>
-                            <input className="simple-input quantity" type="number" />
-                        </div>
-                    </div>
                     <div className="street">
                         <p>Address</p>
                         <input className="simple-input quantity fir-pa" placeholder="street" type="text" />
@@ -77,7 +77,9 @@ export class Product extends Component {
                             <p>{`$${this.props.price}`}</p>
                         </div>
                     </div>
-                    <button className="pay-btn">PAY</button>
+                    <Elements>
+                        <CheckoutForm />
+                    </Elements>
                 </div>
             </div>
         )
@@ -88,6 +90,8 @@ const mapStateToProps = (state) => ({
     productOption: state.dropdownOption.products,
     dropdownStatus: state.dropdownStatus.products,
     price: state.testsPrice,
+    ok: state.payment,
+    error: state.paymentError
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -3,6 +3,7 @@ import { notificationCss, notificationText } from './Notification';
 import { loginSpinner } from './Spinner';
 import { dropdownStatus, dropdownOption } from './DropDown';
 import { testsPrice } from './TestQuantity';
+import { payment, paymentError } from './Payment';
 
 
 const RootReducer = combineReducers({
@@ -13,7 +14,10 @@ const RootReducer = combineReducers({
     dropdownStatus,
     dropdownOption,
     
-    testsPrice
+    testsPrice,
+
+    payment,
+    paymentError
 });
 
 
