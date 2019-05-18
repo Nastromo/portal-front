@@ -20,13 +20,18 @@ export class Product extends Component {
     render() {
         if (this.props.ok) {
             return (
-                <div>OKOKOKOK</div>
+                <div className="center-all">
+                    <h1 className="mar-dop">Thank you!</h1>
+                    <h2>Your payment is successful</h2>
+                </div>
             )
         }
 
         if (this.props.error) {
             return (
-                <div>ERROR</div>
+                <div className="center-all">
+                    <h1 className="mar-dop">Failure!</h1>
+                </div>
             )
         }
 
@@ -46,6 +51,7 @@ export class Product extends Component {
                         <p className="qty">QTY:</p>
                         <input
                             className="simple-input quantity"
+                            value={this.props.qty}
                             onChange={this.handleQty}
                             type="number" />
                         <p className="price">{`$${this.props.price}`}</p>
@@ -78,7 +84,7 @@ export class Product extends Component {
                         </div>
                     </div>
                     <Elements>
-                        <CheckoutForm />
+                        <CheckoutForm address={this.address} />
                     </Elements>
                 </div>
             </div>
@@ -90,6 +96,7 @@ const mapStateToProps = (state) => ({
     productOption: state.dropdownOption.products,
     dropdownStatus: state.dropdownStatus.products,
     price: state.testsPrice,
+    qty: state.testQty,
     ok: state.payment,
     error: state.paymentError
 })

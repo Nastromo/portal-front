@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { showDropDown, setOption } from '../store/actions/DropDown';
+import { calculateTestQuantity } from '../store/actions/TestQuantity';
 
 
 
@@ -16,6 +17,7 @@ export class DropDown extends Component {
 
     handleMenu = (e) => {
         if (this.option.contains(e.target)) {
+            this.props.calculateTestQuantity(0);
             this.props.showDropDown({
                 id: this.props.id,
                 status: true
@@ -65,6 +67,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     showDropDown: (obj) => dispatch(showDropDown(obj)),
     setOption: (obj) => dispatch(setOption(obj)),
+    calculateTestQuantity: (number) => dispatch(calculateTestQuantity(number)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(DropDown)

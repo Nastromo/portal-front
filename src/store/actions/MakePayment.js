@@ -16,20 +16,21 @@ const showError = (errorText) => ({
 export const makePayment = (body) => {
     return async (dispatch, getState) => {
         try {
-            await API.post('/make-payment', body);
+            await API.post('/v1/make-payment', body);
             dispatch(successPayment(true));
         } catch (err) {
             console.log(err);
-            if (err.response) {
-                switch (err.response.data) {
-                    case `Не достаточно средств`:
-                        dispatch(showError(`Не достаточно средств`,));
-                        break;
-                    default: break;
-                }
-            } else {
-                dispatch(showError(`Something went wrong...`));
-            }
+            dispatch(showError(`Something went wrong...`));
+            // if (err.response) {
+            //     switch (err.response.data) {
+            //         case `Не достаточно средств`:
+            //             dispatch(showError(`Не достаточно средств`,));
+            //             break;
+            //         default: break;
+            //     }
+            // } else {
+            //     dispatch(showError(`Something went wrong...`));
+            // }
         }
     }
 };

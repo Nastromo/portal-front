@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { notificationCss, notificationText } from './Notification';
 import { loginSpinner } from './Spinner';
 import { dropdownStatus, dropdownOption } from './DropDown';
-import { testsPrice } from './TestQuantity';
+import { testsPrice, testQty } from './TestQuantity';
 import { payment, paymentError } from './Payment';
 
 
@@ -15,6 +15,7 @@ const RootReducer = combineReducers({
     dropdownOption,
     
     testsPrice,
+    testQty,
 
     payment,
     paymentError
