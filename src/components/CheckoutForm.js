@@ -38,6 +38,7 @@ class CheckoutForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    userId: state.user.userId,
     address: state.address,
     city: state.city,
     state: state.state,

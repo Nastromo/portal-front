@@ -5,6 +5,7 @@ import { dropdownStatus, dropdownOption } from './DropDown';
 import { testsPrice, testQty } from './TestQuantity';
 import { payment, paymentError } from './Payment';
 import { address, city, state, zip } from './Address';
+import { userLoading, user } from './User';
 
 
 const RootReducer = combineReducers({
@@ -14,7 +15,7 @@ const RootReducer = combineReducers({
 
     dropdownStatus,
     dropdownOption,
-    
+
     testsPrice,
     testQty,
 
@@ -24,7 +25,10 @@ const RootReducer = combineReducers({
     address,
     city,
     state,
-    zip
+    zip,
+
+    userLoading,
+    user
 });
 
 

@@ -37,11 +37,12 @@ export class Navigation extends Component {
     }
 
     handleExit = () => {
+        localStorage.removeItem(`emprToken`);
         this.props.history.push(`/login`);
     }
 
     handleSettings = () => {
-        this.props.history.push(`/settings`);
+        this.props.history.push(`/account/settings`);
     }
 
     render() {

@@ -12,7 +12,7 @@ export class login extends Component {
         e.preventDefault();
         if (this.login.value && this.pass.value) {
             this.props.makeLogin(this.props.history, `/v1/login`, {
-                login: this.login.value,
+                email: this.login.value,
                 pass: this.pass.value
             });
         }
@@ -30,7 +30,7 @@ export class login extends Component {
                     <input
                         ref={el => this.login = el}
                         className="input-login"
-                        type="text"
+                        type="email"
                         placeholder="Enter Your Login"
                         required="required"
                         autoComplete="username" />
