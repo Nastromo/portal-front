@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let url = `http://192.168.20.211:9000`;
+let url = `https://mywellcom.us`;
 if (window.location.href.includes(`localhost`)) {
     url = `http://localhost:4000`;
 }

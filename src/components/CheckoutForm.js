@@ -25,7 +25,6 @@ class CheckoutForm extends Component {
     }
 
     render() {
-        if (this.props.address) console.log(this.props.address.value)
         return (
             <div className="checkout">
                 <p>Card credentials</p>
