@@ -4,6 +4,7 @@ import { loginSpinner } from './Spinner';
 import { dropdownStatus, dropdownOption } from './DropDown';
 import { testsPrice, testQty } from './TestQuantity';
 import { payment, paymentError } from './Payment';
+import { address, city, state, zip } from './Address';
 
 
 const RootReducer = combineReducers({
@@ -18,7 +19,12 @@ const RootReducer = combineReducers({
     testQty,
 
     payment,
-    paymentError
+    paymentError,
+
+    address,
+    city,
+    state,
+    zip
 });
 
 

@@ -4,6 +4,7 @@ import DropDown from './DropDown';
 import { calculateTestQuantity } from '../store/actions/TestQuantity';
 import { Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
+import { setAddress, setCity, setState, setZip } from '../store/actions/Address';
 
 
 
@@ -15,6 +16,22 @@ export class Product extends Component {
 
     handleQty = (e) => {
         this.props.calculateTestQuantity(e.target.value);
+    }
+
+    handleAddress = (e) => {
+        this.props.setAddress(e.target.value);
+    }
+
+    handleCity = (e) => {
+        this.props.setCity(e.target.value);
+    }
+
+    handleState = (e) => {
+        this.props.setState(e.target.value);
+    }
+
+    handleZip = (e) => {
+        this.props.setZip(e.target.value);
     }
 
     render() {
@@ -34,7 +51,7 @@ export class Product extends Component {
                 </div>
             )
         }
-
+        
         return (
             <div className="flex-ce">
                 <div className="form-pay">
@@ -60,20 +77,38 @@ export class Product extends Component {
 
                     <div className="street">
                         <p>Address</p>
-                        <input className="simple-input quantity fir-pa" placeholder="street" type="text" />
+                        <input
+                            className="simple-input quantity fir-pa"
+                            placeholder="street"
+                            value={this.props.address}
+                            onChange={this.handleAddress}
+                            type="text" />
                     </div>
                     <div className="wi-card">
                         <div>
                             <p>City</p>
-                            <input className="simple-input quantity fir-pa" placeholder="city" type="text" />
+                            <input
+                                className="simple-input quantity fir-pa"
+                                placeholder="city"
+                                value={this.props.city}
+                                onChange={this.handleCity}
+                                type="text" />
                         </div>
                         <div>
                             <p>State</p>
-                            <input className="simple-input quantity" type="text" />
+                            <input
+                                className="simple-input quantity"
+                                value={this.props.state}
+                                onChange={this.handleState}
+                                type="text" />
                         </div>
                         <div>
                             <p>ZIP</p>
-                            <input className="simple-input quantity" type="number" />
+                            <input
+                                className="simple-input quantity"
+                                value={this.props.zip}
+                                onChange={this.handleZip}
+                                type="number" />
                         </div>
                     </div>
                     <div className="street">
@@ -93,6 +128,10 @@ export class Product extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    address: state.address,
+    city: state.city,
+    state: state.state,
+    zip: state.zip,
     productOption: state.dropdownOption.products,
     dropdownStatus: state.dropdownStatus.products,
     price: state.testsPrice,
@@ -103,6 +142,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
     calculateTestQuantity: (number) => dispatch(calculateTestQuantity(number)),
+    setAddress: (text) => dispatch(setAddress(text)),
+    setCity: (text) => dispatch(setCity(text)),
+    setState: (text) => dispatch(setState(text)),
+    setZip: (text) => dispatch(setZip(text)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product)

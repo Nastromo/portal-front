@@ -8,12 +8,17 @@ import { makePayment } from '../store/actions/MakePayment';
 
 class CheckoutForm extends Component {
     pay = async () => {
-        if (this.props.price && this.props.qty) {
-            let { token } = await this.props.stripe.createToken({ name: `name` });
+        if (this.props.price && this.props.quantity) {
+            let { token } = await this.props.stripe.createToken({ name: this.props.userId });
             const paymentData = {
                 amount: this.props.amount * 100,
                 token,
-                testTitle: this.props.testTitle
+                testTitle: this.props.testTitle,
+                quantity: this.props.quantity,
+                address: this.props.address,
+                city: this.props.city,
+                state: this.props.state,
+                zip: this.props.zip,
             }
             this.props.makePayment(paymentData);
         }
@@ -34,11 +39,14 @@ class CheckoutForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    // userId: state.user.userId,
+    address: state.address,
+    city: state.city,
+    state: state.state,
+    zip: state.zip,
     amount: state.testsPrice,
     testTitle: state.dropdownOption.products,
     price: state.testsPrice,
-    qty: state.testQty,
+    quantity: state.testQty,
 })
 
 const mapDispatchToProps = dispatch => ({
