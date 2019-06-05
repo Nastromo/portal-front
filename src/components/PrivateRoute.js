@@ -5,6 +5,7 @@ import LineSpinner from './LineSpinner';
 import Main from './Main';
 import Navigation from './Navigation';
 import Product from './Product';
+import Results from './Results';
 import { StripeProvider } from 'react-stripe-elements';
 import { getUser } from '../store/actions/User';
 
@@ -26,6 +27,7 @@ export class PrivateRoute extends Component {
                     <Switch>
                         <Route exact path="/account/main" component={Main} />
                         <Route exact path="/account/products" component={Product} />
+                        <Route exact path="/account/results" component={Results} />
                     </Switch>
                 </div>
             </StripeProvider>

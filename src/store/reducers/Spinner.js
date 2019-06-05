@@ -25,6 +25,15 @@ export const saveSpinner = (state = false, action) => {
     }
 }
 
+export const spinnerStatus = (state = false, action) => {
+    switch (action.type) {
+        case `SHOW_SPINNER`:
+            return action.bool;
+
+        default: return state;
+    }
+}
+
 export const submitSpinner = (state = false, action) => {
     switch (action.type) {
         case `SHOW_SUBMIT_SPINNER`:

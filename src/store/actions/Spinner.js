@@ -27,3 +27,8 @@ export const showDeleteSpinner = (bool) => ({
     type: 'SHOW_DELETE_SPINNER',
     bool
 });
+
+export const showSpinner = (bool) => ({
+    type: 'SHOW_SPINNER',
+    bool
+});

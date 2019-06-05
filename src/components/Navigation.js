@@ -50,7 +50,7 @@ export class Navigation extends Component {
             <div className="white-back">
                 <div className="main-nav">
                     <div className="main-categories">
-                        <a className="logo-text" href="/account/main">Wellcom</a>
+                        <a className="logo-text" href="/account/products">Wellcom</a>
                         <Link
                             id="results"
                             onClick={this.handleClick}

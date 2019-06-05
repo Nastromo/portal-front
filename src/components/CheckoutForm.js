@@ -9,18 +9,7 @@ import { makePayment } from '../store/actions/MakePayment';
 class CheckoutForm extends Component {
     pay = async () => {
         if (this.props.price && this.props.quantity) {
-            let { token } = await this.props.stripe.createToken({ name: this.props.userId });
-            const paymentData = {
-                amount: this.props.amount * 100,
-                token,
-                testTitle: this.props.testTitle,
-                quantity: this.props.quantity,
-                address: this.props.address,
-                city: this.props.city,
-                state: this.props.state,
-                zip: this.props.zip,
-            }
-            this.props.makePayment(paymentData);
+            this.props.makePayment(this.props.stripe);
         }
     }
 
@@ -31,13 +20,25 @@ class CheckoutForm extends Component {
                 <div className="center-vert">
                     <CardElement className="strp" />
                 </div>
-                <button onClick={this.pay} className="pay-btn">PAY</button>
+
+                <button onClick={this.pay} className="pay-btn" type="submit">
+                    <div className={this.props.status ? `loadding` : `not-loadding`}>
+                        <div className="lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <p className={this.props.status ? `hide-text` : `show-text`}>PAY</p>
+                </button>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
+    status: state.spinnerStatus,
     userId: state.user.userId,
     address: state.address,
     city: state.city,
