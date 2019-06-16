@@ -1720,3 +1720,98 @@ a.logo-text:hover {
     display: flex;
     justify-content: center;
 }
+
+.cen-receipt {
+    border: 5px solid #e7e7e7;
+    padding: 50px;
+    background: #fff;
+    width: 700px;
+}
+
+.center-rec {
+    margin: 25px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.big-rece {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.toper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-m {
+    width: auto;
+    height: 80px;
+}
+
+.marg-rr {
+    margin: 15px 0 0 0;
+    align-items: flex-start;
+}
+
+.str-b {
+    font-weight: 700;
+}
+
+.sm-te {
+    font-weight: 600;
+    font-size: 0.84rem;
+}
+
+.tit-fl-pro {
+    margin: 30px 0 10px 0;
+    display: flex;
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 0.84rem;
+    color: #095849;
+    background: #88dbcb;
+}
+
+.tit-fl-dow {
+    display: flex;
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 0.84rem;
+    color: #000;
+}
+
+.qty-t {
+    width: 100px;
+}
+
+.desc-t {
+    width: 340px;
+}
+
+.left-tot {
+    margin: 50px 0 0 0;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.print-btn {
+    margin: 15px 0 0 0;
+    padding: 5px 25px;
+    border: 1px solid rgb(224, 224, 224);
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.84rem;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.dis-ri {
+    display: flex;
+    justify-content: flex-end;
+}
+

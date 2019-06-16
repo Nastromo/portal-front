@@ -13,3 +13,11 @@ export const paymentError = (state = ``, action) => {
         return state;
     }
 }
+
+export const paymentData = (state = {}, action) => {
+    if (action.type === `SET_PAYMENT_SUCCESS`) {
+        return action.data
+    } else {
+        return state;
+    }
+}

@@ -5,6 +5,8 @@ import { calculateTestQuantity } from '../store/actions/TestQuantity';
 import { Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
 import { setAddress, setCity, setState, setZip } from '../store/actions/Address';
+import Receipt from './Receipt';
+
 
 
 
@@ -37,9 +39,8 @@ export class Product extends Component {
     render() {
         if (this.props.ok) {
             return (
-                <div className="center-all">
-                    <h1 className="mar-dop">Thank you!</h1>
-                    <h2>Your payment is successful</h2>
+                <div className="center-rec">
+                    <Receipt />
                 </div>
             )
         }
@@ -51,7 +52,7 @@ export class Product extends Component {
                 </div>
             )
         }
-        
+
         return (
             <div className="flex-ce">
                 <div className="form-pay">

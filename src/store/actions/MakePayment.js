@@ -13,6 +13,11 @@ const showError = (errorText) => ({
     errorText
 });
 
+const setPayment = (data) => ({
+    type: 'SET_PAYMENT_SUCCESS',
+    data
+});
+
 
 export const makePayment = (stripe) => {
     return async (dispatch, getState) => {
@@ -31,7 +36,8 @@ export const makePayment = (stripe) => {
                 zip: state.zip,
             }
 
-            await API.post('/v1/make-payment', paymentData);
+            const res = await API.post('/v1/make-payment', paymentData);
+            dispatch(setPayment(res.data))
             dispatch(successPayment(true));
             dispatch(showSpinner(false));
         } catch (err) {

@@ -3,7 +3,7 @@ import { notificationCss, notificationText } from './Notification';
 import { loginSpinner, spinnerStatus } from './Spinner';
 import { dropdownStatus, dropdownOption } from './DropDown';
 import { testsPrice, testQty } from './TestQuantity';
-import { payment, paymentError } from './Payment';
+import { payment, paymentError, paymentData } from './Payment';
 import { address, city, state, zip } from './Address';
 import { userLoading, user } from './User';
 import { resultsList, resultLoading, resultError } from './Results';
@@ -28,6 +28,7 @@ const RootReducer = combineReducers({
 
     payment,
     paymentError,
+    paymentData,
 
     address,
     city,
