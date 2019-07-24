@@ -115,6 +115,22 @@ button {
     width: 100%;
 }
 
+.flex {
+    display: flex;
+}
+
+.al-center {
+    align-items: center;
+}
+
+.ju-center {
+    justify-content: center;
+}
+
+.column {
+    flex-direction: column;
+}
+
 .micro{
     margin: 60px 0 20px 0;
 }
@@ -809,6 +825,11 @@ a.logo-text:hover {
 
 .max-width250:last-child {
     margin: 0 0 15px 0;
+}
+
+.width300 {
+    max-width: 400px;
+    margin: 20px 0 0 0;
 }
 
 .flex-hor {
@@ -1813,5 +1834,12 @@ a.logo-text:hover {
 .dis-ri {
     display: flex;
     justify-content: flex-end;
+}
+
+.center {
+    margin: 90px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 

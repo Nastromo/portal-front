@@ -12,9 +12,10 @@ import { getUser } from '../store/actions/User';
 
 
 
+
 export class PrivateRoute extends Component {
     componentDidMount() {
-        this.props.getUser(this.props.history);
+        // this.props.getUser(this.props.history);
     }
 
     render() {
@@ -28,6 +29,9 @@ export class PrivateRoute extends Component {
                         <Route exact path="/account/main" component={Main} />
                         <Route exact path="/account/products" component={Product} />
                         <Route exact path="/account/results" component={Results} />
+                        
+                        
+                        
                     </Switch>
                 </div>
             </StripeProvider>

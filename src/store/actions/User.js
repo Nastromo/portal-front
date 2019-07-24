@@ -13,6 +13,24 @@ export const setUser = (user) => ({
     user
 });
 
+export const saveUserInfo = (first, last, dob) => {
+    return async (dispatch, getState) => {
+        try {
+            const url = new URL(window.location.href)
+            const token = url.searchParams.get('key');
+            console.log(token);
+            await API.post(`/v1/validate-reg`, {
+                token,
+                first,
+                last,
+                dob
+            });
+            window.location.href = `/account/products`;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
 
 export const getUser = (history) => {
     return async (dispatch, getState) => {

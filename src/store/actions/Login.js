@@ -3,17 +3,29 @@ import { showLoginSpinner } from './Spinner';
 import { showNotification } from './Notification';
 
 
+export const setUser = (obj) => ({
+    type: 'SET_USER',
+    obj
+});
 
 export const makeLogin = (history, url, body) => {
     return async (dispatch, getState) => {
         try {
             dispatch(showLoginSpinner(true));
             const res = await API.post(url, body);
-            localStorage.setItem(`emprToken`, res.data.token);
-            API.defaults.headers['x-auth'] = `Bearer ${localStorage.getItem(`emprToken`)}`;
-            history.push(`/account/products`);
+        
+            if (res.data.userId) {
+                localStorage.setItem(`emprToken`, res.data.token);
+                API.defaults.headers['x-auth'] = `Bearer ${localStorage.getItem(`emprToken`)}`;
+                dispatch(setUser(res.data));
+                history.push(`/account/products`);
+            } else {
+                history.push(`/is-confirmed`);    
+            }
+
             dispatch(showLoginSpinner(false));
         } catch (err) {
+            console.log(err)
             dispatch(showLoginSpinner(false));
             if (err.response) {
                 switch (err.response.data) {

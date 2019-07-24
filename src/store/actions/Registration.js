@@ -11,7 +11,7 @@ export const makeReg = (history, url, body) => {
             const res = await API.post(url, body);
             localStorage.setItem(`emprToken`, res.data.token);
             API.defaults.headers['x-auth'] = `Bearer ${localStorage.getItem(`emprToken`)}`;
-            history.push(`/account/products`);
+            history.push(`/is-confirmed`);
             dispatch(showLoginSpinner(false));
         } catch (err) {
             dispatch(showLoginSpinner(false));

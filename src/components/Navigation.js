@@ -66,7 +66,7 @@ export class Navigation extends Component {
 
                     <div className="work-info">
                         <p>Wellcome:</p>
-                        <p className="nav-te">{this.props.name}</p>
+                        <p className="nav-te">{this.props.user.firstName}</p>
                         <p className="nav-te" onClick={this.handleSettings}>Settings</p>
                         <p className="nav-te" onClick={this.handleExit}>Log out</p>
                     </div>
@@ -77,7 +77,7 @@ export class Navigation extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    name: `Vlad`
+    user: state.user,
 
 })
 
