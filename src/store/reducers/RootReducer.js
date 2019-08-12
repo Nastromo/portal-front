@@ -2,14 +2,22 @@ import { combineReducers } from 'redux';
 import { notificationCss, notificationText } from './Notification';
 import { loginSpinner, spinnerStatus } from './Spinner';
 import { dropdownStatus, dropdownOption } from './DropDown';
-import { testsPrice, testQty } from './TestQuantity';
+import { testsPrice, testQty, gwmValue, ndValue, vdValue, idefValue, vaValue, b12Value } from './TestQuantity';
 import { payment, paymentError, paymentData } from './Payment';
 import { address, city, state, zip } from './Address';
 import { userLoading, user } from './User';
 import { resultsList, resultLoading, resultError } from './Results';
+import { checkbox } from './CheckBox';
 
 
 const RootReducer = combineReducers({
+    gwmValue,
+    b12Value,
+    vaValue,
+    idefValue,
+    vdValue,
+    ndValue,
+    checkbox,
     resultsList,
     resultLoading,
     resultError,

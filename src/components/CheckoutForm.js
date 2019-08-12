@@ -8,7 +8,7 @@ import { makePayment } from '../store/actions/MakePayment';
 
 class CheckoutForm extends Component {
     pay = async () => {
-        if (this.props.price && this.props.quantity) {
+        if (this.props.total > 0) {
             this.props.makePayment(this.props.stripe);
         }
     }
@@ -38,6 +38,7 @@ class CheckoutForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
+    total: 295 * state.gwmValue + 345 * state.ndValue + 255 * state.vdValue + 195 * state.idefValue + 150 * state.vaValue + 150 * state.b12Value,
     status: state.spinnerStatus,
     userId: state.user.userId,
     address: state.address,

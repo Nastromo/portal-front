@@ -25,11 +25,54 @@ export const makePayment = (stripe) => {
             dispatch(showSpinner(true));
             const state = getState();
             let { token } = await stripe.createToken({ name: state.user.userId });
+
+            let tests = [];
+            if (state.gwmValue) {
+                tests.push({
+                    title: "Genetic Weight Management",
+                    quantity: state.gwmValue
+                })
+            }
+
+            if (state.ndValue) {
+                tests.push({
+                    title: "Nutritional Deficiencies",
+                    quantity: state.ndValue
+                })
+            }
+
+            if (state.vdValue) {
+                tests.push({
+                    title: "Vitamin D deficiency",
+                    quantity: state.vdValue
+                })
+            }
+
+            if (state.idefValue) {
+                tests.push({
+                    title: "Iron deficiency",
+                    quantity: state.idefValue
+                })
+            }
+
+            if (state.vaValue) {
+                tests.push({
+                    title: "Vitamin A deficiency",
+                    quantity: state.vaValue
+                })
+            }
+
+            if (state.b12Value) {
+                tests.push({
+                    title: "Vitamin B12 deficiency",
+                    quantity: state.b12Value
+                })
+            }
+
             const paymentData = {
-                amount: state.testsPrice * 100,
+                amount: (295 * state.gwmValue + 345 * state.ndValue + 255 * state.vdValue + 195 * state.idefValue + 150 * state.vaValue + 150 * state.b12Value) * 100,
                 token,
-                testTitle: state.dropdownOption.products,
-                quantity: state.testQty,
+                tests,
                 address: state.address,
                 city: state.city,
                 state: state.state,
