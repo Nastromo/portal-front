@@ -55,5 +55,30 @@ export const getUser = (history) => {
     }
 };
 
+export const setDob = (text) => ({
+    type: 'CHANGE_DOB',
+    text
+});
+
+export const handleDelete = (e) => {
+    return async (dispatch, getState) => {
+        const dob = getState().dob ? getState().dob : "";
+        if ((e.keyCode === 8 && dob.length === 6) || (e.keyCode === 8 && dob.length === 3)) {
+            dispatch(setDob(dob.slice(0, -1)));
+        }
+    }
+};
+
+export const changeDob = (e) => {
+    return async (dispatch, getState) => {
+        let dob = "";
+        dob = dob + e.target.value;
+        if (dob.length === 2 || dob.length === 5) {
+            dob = dob + "/";
+        }
+        dispatch(setDob(dob));
+    }
+};
+
 
 

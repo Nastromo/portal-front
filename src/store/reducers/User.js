@@ -15,3 +15,12 @@ export const user = (state = {}, action) => {
         default: return state;
     }
 }
+
+export const dob = (state = "", action) => {
+    switch (action.type) {
+        case `CHANGE_DOB`:
+            return action.text;
+
+        default: return state;
+    }
+}

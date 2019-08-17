@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from '../img/logo.png';
-import { saveUserInfo } from '../store/actions/User';
+import { saveUserInfo, changeDob, handleDelete } from '../store/actions/User';
 
 
 
 export class Confirmation extends Component {
     onClick = () => {
-        if (this.firstname.value && this.lastname.value && this.dob.value) {
-            this.props.saveUserInfo(this.firstname.value, this.lastname.value, this.dob.value);
+        if (this.firstname.value && this.lastname.value && this.props.dob) {
+            this.props.saveUserInfo(this.firstname.value, this.lastname.value, this.props.dob);
         }
     }
 
@@ -34,10 +34,12 @@ export class Confirmation extends Component {
                             required="required" />
 
                         <input
-                            ref={el => this.dob = el}
+                            value={this.props.dob}
                             className="input-login"
                             placeholder="Your date of birth"
-                            required="required" />
+                            required="required"
+                            onKeyDown={this.props.handleDelete}
+                            onChange={this.props.changeDob} />
 
                         <div className="main-btn-height">
                             <button onClick={this.onClick} className="green-btn">Continue</button>
@@ -51,11 +53,13 @@ export class Confirmation extends Component {
 }
 
 const mapStateToProps = (state) => ({
-
+    dob: state.dob
 })
 
 const mapDispatchToProps = dispatch => ({
     saveUserInfo: (firstname, lastname, dob) => dispatch(saveUserInfo(firstname, lastname, dob)),
+    changeDob: (e) => dispatch(changeDob(e)),
+    handleDelete: (e) => dispatch(handleDelete(e))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Confirmation)
