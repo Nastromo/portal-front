@@ -11,7 +11,7 @@ export const makeReg = (history, url, body) => {
             const res = await API.post(url, body);
             localStorage.setItem(`emprToken`, res.data.token);
             API.defaults.headers['x-auth'] = `Bearer ${localStorage.getItem(`emprToken`)}`;
-            history.push(`/is-confirmed`);
+            history.push(`/terms`);
             dispatch(showLoginSpinner(false));
         } catch (err) {
             dispatch(showLoginSpinner(false));
@@ -28,3 +28,14 @@ export const makeReg = (history, url, body) => {
         }
     }
 };
+
+export const acceptTerms = () => {
+    return async (dispatch, getState) => {
+        try {
+            await API.post('/v1/terms');
+            window.location.href = `/is-confirmed`;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}

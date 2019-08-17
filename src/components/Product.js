@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import DropDown from './DropDown';
 import { calculateTestQuantity } from '../store/actions/TestQuantity';
 import { Elements } from 'react-stripe-elements';
 import CheckoutForm from './CheckoutForm';
 import { setAddress, setCity, setState, setZip } from '../store/actions/Address';
 import Receipt from './Receipt';
 import TestsChoose from './TestsChoose';
-
+import weight from '../img/weight.jpg';
+import nut from '../img/Nut.jpg';
 
 
 
@@ -58,38 +58,25 @@ export class Product extends Component {
             <div className="flex ju-center">
                 <div className="width400">
                     <p className="pay-title">Testing Menu</p>
-                    <div className="optn">Option #1</div>
-                    <p className="bold pad15-side">TEST TITLE</p>
+
+                    <div className="relative">
+                        <img className="weight" src={weight} alt="" />
+                        <div className="optn">Weight Management</div>
+                    </div>
+
                     <p className="small">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos voluptate quidem a autem, id provident, omnis, vitae nobis vel itaque quod fuga totam minus velit sed! Molestias amet odit ullam.</p>
 
-                    <div className="optn mar-t-40">Option #2</div>
-                    <p className="bold pad15-side">TEST TITLE</p>
+                    <div className="relative">
+                        <img className="weight" src={nut} alt="" />
+                        <div className="optn mar-t-40">Nutritional Deficiencies</div>
+                    </div>
                     <p className="small">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos voluptate quidem a autem, id provident, omnis, vitae nobis vel itaque quod fuga totam minus velit sed! Molestias amet odit ullam.</p>
                 </div>
                 <div className="flex-ce">
                     <div className="form-pay">
                         <p className="pay-title">Please Select Our Tests</p>
-                        {/* <div className="prod-sele">
-                        <div className="products-s">
-                            <DropDown
-                                option={this.props.productOption}
-                                status={this.props.dropdownStatus}
-                                menu={this.products}
-                                id="products" />
-                        </div>
-
-                        <p className="qty">QTY:</p>
-                        <input
-                            className="simple-input quantity"
-                            value={this.props.qty}
-                            onChange={this.handleQty}
-                            type="number" />
-                        <p className="price">{`$${this.props.price}`}</p>
-                    </div> */}
-
 
                         <TestsChoose />
-
 
                         <div className="full-w"><p>Pay with Credit Card</p></div>
 
@@ -157,8 +144,38 @@ const mapStateToProps = (state) => ({
     qty: state.testQty,
     ok: state.payment,
     error: state.paymentError,
-    total: 295 * state.gwmValue + 345 * state.ndValue + 255 * state.vdValue + 195 * state.idefValue + 150 * state.vaValue + 150 * state.b12Value,
+    total: getTotal(state),
 })
+
+const getTotal = (state) => {
+    let total = 0;
+
+    if (state.checkbox.gwm > 0) {
+        total = total + 295 * state.gwmValue;
+    }
+
+    if (state.checkbox.nd > 0) {
+        total = total + 345 * state.ndValue;
+    }
+
+    if (state.checkbox.vd > 0) {
+        total = total + 255 * state.vdValue;
+    }
+
+    if (state.checkbox.idef > 0) {
+        total = total + 195 * state.idefValue;
+    }
+
+    if (state.checkbox.va > 0) {
+        total = total + 150 * state.vaValue;
+    }
+
+    if (state.checkbox.b12 > 0) {
+        total = total + 150 * state.b12Value;
+    }
+
+    return total;
+}
 
 const mapDispatchToProps = dispatch => ({
     calculateTestQuantity: (number) => dispatch(calculateTestQuantity(number)),

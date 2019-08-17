@@ -1071,8 +1071,8 @@ a.logo-text:hover {
 }
 
 .optn {
-    margin: 10px 0;
-    padding: 13px 15px;
+    margin: 20px 0;
+    padding: 13px 100px;
     background: #51dbc0;
     color: #fff;
     font-size: 0.84rem;
@@ -1090,7 +1090,28 @@ a.logo-text:hover {
 }
 
 .mar-t-40 {
-    margin: 40px 0 0 0;
+    margin: 40px 0 20px 0;
+}
+
+.smal-text {
+    font-size: 0.84rem;
+}
+
+.gap {
+    margin-bottom: 10px;
+}
+
+.scroll {
+    margin: 5px 0 17px 0;
+    border-radius: 4px;
+    border: 1px solid #dadada;
+    padding: 5px 10px;
+    height: 100px;
+    overflow: auto;
+}
+
+.smal-text-sup {
+    font-size: 0.7rem;
 }
 
 .center-content {
@@ -1821,6 +1842,10 @@ a.logo-text:hover {
     width: 700px;
 }
 
+.cen-receipt-sma {
+    padding: 25px 50px;
+}
+
 .center-rec {
     margin: 25px 0 20px 0;
     display: flex;
@@ -1913,5 +1938,43 @@ a.logo-text:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.weight {
+    height: 70px;
+    width: 70px;
+    margin: -12px 0 0 20px;
+    position: absolute;
+    background: url('./img/weight.jpg') no-repeat center;
+}
+
+.positive {
+    cursor: pointer;
+    margin: 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    width: 120px;
+    height: 35px;
+    background: #15ac8e;
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.negative {
+    cursor: pointer;
+    margin: 4px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    width: 120px;
+    height: 35px;
+    background: #ececec;
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 700;
 }
 

@@ -13,14 +13,20 @@ export const makeLogin = (history, url, body) => {
         try {
             dispatch(showLoginSpinner(true));
             const res = await API.post(url, body);
-        
+            console.log(res.data)
             if (res.data.userId) {
                 localStorage.setItem(`emprToken`, res.data.token);
                 API.defaults.headers['x-auth'] = `Bearer ${localStorage.getItem(`emprToken`)}`;
                 dispatch(setUser(res.data));
                 history.push(`/account/products`);
             } else {
-                history.push(`/is-confirmed`);    
+                if (res.data.isAccepted) {
+                    if (!res.data.isConfirmed) {
+                        history.push(`/is-confirmed`);
+                    }
+                } else {
+                    history.push(`/terms`);
+                }
             }
 
             dispatch(showLoginSpinner(false));

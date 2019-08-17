@@ -14,7 +14,7 @@ export const testQty = (state = 0, action) => {
     }
 }
 
-export const gwmValue = (state = 0, action) => {
+export const gwmValue = (state = 1, action) => {
     switch (action.type) {
         case `SET_GWM`:
             return action.number;
@@ -22,7 +22,7 @@ export const gwmValue = (state = 0, action) => {
     }
 }
 
-export const ndValue = (state = 0, action) => {
+export const ndValue = (state = 1, action) => {
     switch (action.type) {
         case `SET_ND`:
             return action.number;
@@ -30,7 +30,7 @@ export const ndValue = (state = 0, action) => {
     }
 }
 
-export const vdValue = (state = 0, action) => {
+export const vdValue = (state = 1, action) => {
     switch (action.type) {
         case `SET_VD`:
             return action.number;
@@ -38,7 +38,7 @@ export const vdValue = (state = 0, action) => {
     }
 }
 
-export const idefValue = (state = 0, action) => {
+export const idefValue = (state = 1, action) => {
     switch (action.type) {
         case `SET_IDEF`:
             return action.number;
@@ -46,7 +46,7 @@ export const idefValue = (state = 0, action) => {
     }
 }
 
-export const vaValue = (state = 0, action) => {
+export const vaValue = (state = 1, action) => {
     switch (action.type) {
         case `SET_VA`:
             return action.number;
@@ -54,7 +54,7 @@ export const vaValue = (state = 0, action) => {
     }
 }
 
-export const b12Value = (state = 0, action) => {
+export const b12Value = (state = 1, action) => {
     switch (action.type) {
         case `SET_B12`:
             return action.number;
